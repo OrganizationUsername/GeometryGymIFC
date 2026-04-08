@@ -84,8 +84,9 @@ namespace GeometryGym.Ifc
 		internal IfcRailway(DatabaseIfc db) : base(db) { }
 		public IfcRailway(DatabaseIfc db, string name) : base(db, name) { }
 		public IfcRailway(DatabaseIfc db, IfcRailway railway, DuplicateOptions options) : base(db, railway, options) { }
-		public IfcRailway(IfcFacility host, string name, IfcObjectPlacement placement, IfcProductDefinitionShape representation) : base(host, placement, representation) { Name = name; }
-		internal IfcRailway(IfcObjectDefinition host, IfcObjectPlacement placement, IfcProductDefinitionShape representation) : base(host, placement, representation) { }
+		public IfcRailway(IfcFacility host, string name, IfcObjectPlacement placement, IfcProductDefinitionShape representation) : base(host, name, placement, representation) { }
+		public IfcRailway(IfcProject host, string name, IfcObjectPlacement placement, IfcProductDefinitionShape representation) : base(host, name, placement, representation) { }
+		internal IfcRailway(IfcSpatialStructureElement host, string name, IfcObjectPlacement placement, IfcProductDefinitionShape representation) : base(host, name, placement, representation) { }
 	}
 	[Serializable, VersionAdded(ReleaseVersion.IFC4X3)]
 	public partial class IfcRailwayPart : IfcFacilityPart
@@ -96,7 +97,9 @@ namespace GeometryGym.Ifc
 		public IfcRailwayPart() : base() { }
 		public IfcRailwayPart(DatabaseIfc db) : base(db) { }
 		public IfcRailwayPart(DatabaseIfc db, IfcRailwayPart railwayPart, DuplicateOptions options) : base(db, railwayPart, options) { }
-		public IfcRailwayPart(IfcObjectDefinition host, IfcObjectPlacement placement, IfcProductDefinitionShape representation) : base(host, placement, representation) { }
+		public IfcRailwayPart(IfcRailway host, string name, IfcObjectPlacement placement, IfcProductDefinitionShape representation) : base(host, name, placement, representation) { }
+		public IfcRailwayPart(IfcRailwayPart host, string name, IfcObjectPlacement placement, IfcProductDefinitionShape representation) : base(host, name, placement, representation) { }
+		internal IfcRailwayPart(IfcSpatialStructureElement host, string name, IfcObjectPlacement placement, IfcProductDefinitionShape representation) : base(host, name, placement, representation) { }
 	}
 	[Serializable]
 	public partial class IfcRamp : IfcBuiltElement
@@ -2846,8 +2849,9 @@ namespace GeometryGym.Ifc
 		internal IfcRoad(DatabaseIfc db) : base(db) { }
 		public IfcRoad(DatabaseIfc db, string name) : base(db, name) { }
 		public IfcRoad(DatabaseIfc db, IfcRoad road, DuplicateOptions options) : base(db, road, options) { }
-		public IfcRoad(IfcFacility host, string name, IfcObjectPlacement placement, IfcProductDefinitionShape representation) : base(host, placement, representation) { Name = name; }
-		internal IfcRoad(IfcObjectDefinition host, IfcObjectPlacement placement, IfcProductDefinitionShape representation) : base(host, placement, representation) { }
+		public IfcRoad(IfcFacility host, string name, IfcObjectPlacement placement, IfcProductDefinitionShape representation) : base(host, name, placement, representation) { }
+		public IfcRoad(IfcProject host, string name, IfcObjectPlacement placement, IfcProductDefinitionShape representation) : base(host, name, placement, representation) { }
+		internal IfcRoad(IfcSpatialStructureElement host, string name, IfcObjectPlacement placement, IfcProductDefinitionShape representation) : base(host, name, placement, representation) { }
 	}
 	[Serializable]
 	public partial class IfcRoadPart : IfcFacilityPart
@@ -2858,7 +2862,9 @@ namespace GeometryGym.Ifc
 		public IfcRoadPart() : base() { }
 		public IfcRoadPart(DatabaseIfc db) : base(db) { }
 		public IfcRoadPart(DatabaseIfc db, IfcRoadPart roadPart, DuplicateOptions options) : base(db, roadPart, options) { }
-		public IfcRoadPart(IfcObjectDefinition host, IfcObjectPlacement placement, IfcProductDefinitionShape representation) : base(host, placement, representation) { }
+		public IfcRoadPart(IfcRoad host, string name, IfcObjectPlacement placement, IfcProductDefinitionShape representation) : base(host, name, placement, representation) { }
+		public IfcRoadPart(IfcRoadPart host, string name, IfcObjectPlacement placement, IfcProductDefinitionShape representation) : base(host, name, placement, representation) { }
+		internal IfcRoadPart(IfcSpatialStructureElement host, string name, IfcObjectPlacement placement, IfcProductDefinitionShape representation) : base(host, name, placement, representation) { }
 	}
 	[Serializable]
 	public partial class IfcRoof : IfcBuiltElement

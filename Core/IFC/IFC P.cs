@@ -1294,8 +1294,29 @@ namespace GeometryGym.Ifc
 				}
 			}
 			IfcSpatialElement spatialElement = this as IfcSpatialElement;
-			if (spatialElement != null)
+			if(spatialElement != null)
 			{
+				IfcSpatialZone spatialZone = this as IfcSpatialZone;
+				if(spatialZone != null)
+				{
+					spatialZone.ReferenceElement(product);
+					if(product is IfcSpatialZone productSpatialZone)
+					{
+						return;
+					}
+					else
+					{
+						var spatialStructure = spatialZone.ReferencedInStructures.Select(x => x.RelatingStructure).OfType<IfcSpatialStructureElement>().FirstOrDefault();
+						if(spatialStructure != null)
+						{
+							spatialElement = spatialStructure;
+						}
+						else
+						{
+							spatialElement = mDatabase.Project.RootElement();
+						}
+					}
+				}
 				IfcSpatialElement productAsSpatial = product as IfcSpatialElement;
 				if (productAsSpatial == null)
 				{

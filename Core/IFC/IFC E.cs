@@ -1275,7 +1275,7 @@ namespace GeometryGym.Ifc
 
 		internal IfcExternalSpatialElement() : base() { }
 		internal IfcExternalSpatialElement(DatabaseIfc db, IfcExternalSpatialElement e, DuplicateOptions options) : base(db, e, options) { PredefinedType = e.PredefinedType; }
-		public IfcExternalSpatialElement(IfcObjectDefinition host, IfcObjectPlacement placement, IfcProductDefinitionShape shape) : base(host, placement, shape) { }
+		public IfcExternalSpatialElement(IfcSpatialStructureElement host, string name, IfcObjectPlacement placement, IfcProductDefinitionShape shape) : base(host, name, placement, shape) { }
 
 		public void AddBoundary(IfcRelSpaceBoundary boundary) { mBoundedBy.Add(boundary); }
 	}
@@ -1286,7 +1286,7 @@ namespace GeometryGym.Ifc
 		protected IfcExternalSpatialStructureElement(IfcObjectPlacement pl) : base(pl) { }
 		protected IfcExternalSpatialStructureElement(IfcSite host, string name) : base(host, name) { }
 		protected IfcExternalSpatialStructureElement(DatabaseIfc db, IfcExternalSpatialStructureElement e, DuplicateOptions options) : base(db, e, options) { }
-		protected IfcExternalSpatialStructureElement(IfcObjectDefinition host, IfcObjectPlacement placement, IfcProductDefinitionShape shape) : base(host, placement, shape) { }
+		protected IfcExternalSpatialStructureElement(IfcSpatialStructureElement host, string name, IfcObjectPlacement placement, IfcProductDefinitionShape shape) : base(host, name, placement, shape) { }
 	}
 	[Serializable]
 	public partial class IfcExtrudedAreaSolid : IfcSweptAreaSolid // SUPERTYPE OF(IfcExtrudedAreaSolidTapered)
